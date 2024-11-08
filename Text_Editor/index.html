@@ -1,0 +1,90 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Editor</title>
+</head>
+<body>
+    <div class="sample-toolbar">
+		<button id="boldButton" onclick="format('bold'); changeButtonColor('bold')">Bold</button>
+        <button id="italicButton" onclick="format('italic'); changeButtonColor('italic')">Italic</button>
+        <button id="listButton" onclick="format('insertunorderedlist'); changeButtonColor('list')">☰ List</button>
+    </div>
+    
+    <div class="editor" id="sampleeditor"></div>
+
+	<script>
+        // Function to toggle the color of the button when pressed, there is proabbly a better way to do this but this works...
+        function changeButtonColor(value){
+            switch(value){
+                case 'bold':
+                    button = document.getElementById('boldButton');
+                    if (button.style.backgroundColor === 'red') {
+                        button.style.backgroundColor = 'white';
+                        button.style.color = 'black';
+                    } else {
+                        button.style.backgroundColor = 'red';
+                        button.style.color = 'white';
+                    }
+                    break;
+                case 'italic':
+                    button = document.getElementById('italicButton');
+                    if (button.style.backgroundColor === 'red') {
+                        button.style.backgroundColor = 'white';
+                        button.style.color = 'black';
+                    } else {
+                        button.style.backgroundColor = 'red';
+                        button.style.color = 'white';
+                    }
+                    break;
+                //might remove this cause the behavior of the list button is not a toggle
+                case 'list':
+                    button = document.getElementById('listButton');
+                    if (button.style.backgroundColor === 'red') {
+                        button.style.backgroundColor = 'white';
+                        button.style.color = 'black';
+                    } else {
+                        button.style.backgroundColor = 'red';
+                        button.style.color = 'white';
+                    }
+                    break;
+            }
+        }
+
+        window.addEventListener('load', function(){
+			document.getElementById('sampleeditor').setAttribute('contenteditable', 'true');
+			// document.getElementById('sampleeditor2').setAttribute('contenteditable', 'true');
+        });
+
+		function format(command, value) {
+			document.execCommand(command, false, value);
+		}
+	</script>
+</body>
+</html>
+<style>
+    .editor
+    {
+        border:solid 1px #ccc;
+        padding: 20px;
+        min-height:200px;
+    }
+
+    .sample-toolbar
+    {
+        border:solid 1px #ddd;
+        background:#f4f4f4;
+        padding: 5px;
+        border-radius:3px;
+    }
+
+    .sample-toolbar > span
+    {
+        cursor:pointer;
+    }
+
+    .sample-toolbar > span:hover
+    {
+        text-decoration:underline;
+    }
+</style>
