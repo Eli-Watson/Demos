@@ -1,0 +1,52 @@
+@keyframes slideright {
+    from {
+        background-position: 12000%;
+    }
+    to {
+        background-position: 0%;
+    }
+}
+* {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+}
+
+.MenuDiv {
+    text-align: center;
+}
+
+#info {
+    position: fixed;
+    top: 10px;
+    left: 20px;
+    font-size: larger;
+    z-index: 10; /* Bring it to the front */
+}
+
+#score {
+    font-size: 1.5em; /* Adjust size as needed */
+}
+#desert {
+    position: absolute;
+    background-image: url('./t-rex-background.png');
+    height: 200px;
+    width: 100%;
+    animation: slideright 600s infinite linear;
+}
+.dino {
+    background-image: url('./t-rex.png');
+    height: 60px;
+    width: 60px;
+    bottom: 0;
+    position: absolute;
+}
+
+.obsticle {
+    background-image: url('./cacti02.png');
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    bottom: 0;
+}
+
